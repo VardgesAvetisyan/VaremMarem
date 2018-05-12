@@ -53,22 +53,18 @@ $(document).ready(function () {
             height: "14vh",
             border: "1px solid black",
             position: "relative",
+            display:"inline-block",
             top:tOp,
             right:riGht,
             bottom:boTTom,
             left:leFt,
-        }).attr("class", "window").appendTo(app);
+        }).appendTo(app);
     }
-    
-    windows("2vh","0px","0px","5vw",roof2,window1);
+    for(var i = 5;i<27;i+=7){
+        windows("5vh","0px","0px",i+"vw",roof2,"window1");
+    }
 
-    var window1 = $("<div/>").css({
-        width: "10vw",
-        height: "14vh",
-        border: "1px solid black",
-        position: "relative",
-       left:""
-    }).attr("class", "window").appendTo(roof2);
+    
 
     var route = $("<div/>").css({
         height: "19.5vh",
