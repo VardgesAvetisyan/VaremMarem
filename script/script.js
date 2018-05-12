@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     var content = $("<div/>").css({
         width: "85vw",
@@ -22,10 +24,8 @@ $(document).ready(function () {
         position: "relative",
     }).appendTo(world);
 
-
-
     function roof(tOp, app, name) {
-        var name = $("<div/>").css({
+        name = $("<div/>").css({
             width: "71.8vw",
             height: "27vh",
             border: "1px solid",
@@ -35,22 +35,24 @@ $(document).ready(function () {
     }
 
     roof("50.8vh", building, "roof1");
-    function windows(tOp, riGht, boTTom, leFt, app, name) {
-        var name = $("<div/>").css({
-            width: "10vw",
-            height: "14vh",
-            border: "1px solid black",
-            position: "relative",
-            display: "inline-block",
-            top: tOp,
-            right: riGht,
-            bottom: boTTom,
-            left: leFt,
-        }).appendTo(app);
-    }
-    for (var i = 5; i < 27; i += 7) {
-        windows("5vh", "0px", "0px", i + "vw", roof2, "window1");
-    }
+    
+    // function windows(tOp, riGht, boTTom, leFt, app, name) {
+    //     var name = $("<div/>").css({
+    //         width: "10vw",
+    //         height: "14vh",
+    //         border: "1px solid black",
+    //         position: "relative",
+    //         display: "inline-block",
+    //         top: tOp,
+    //         right: riGht,
+    //         bottom: boTTom,
+    //         left: leFt,
+    //     }).appendTo(app);
+    // }
+
+    // for (var i = 5; i < 27; i += 7) {
+    //     windows("5vh", "0px", "0px", i + "vw", roof2, "window1");
+    // }
 
     var door = $("<div/>").css({
         width: "22vw",
@@ -58,7 +60,7 @@ $(document).ready(function () {
         margin: "auto",
         border: "1px solid black",
         position: "relative",
-    }).attr("class", "door").appendTo(roof1);
+    }).attr("class", "door").appendTo(".roof1");
 
     var route = $("<div/>").css({
         height: "19.5vh",
