@@ -15,8 +15,10 @@
     this.gravity = 0.15;
     this.jumpState = true;
 
-    this.walls = [$("#dontTouch"),$("#route"),$(".windowSill")];
-    
+    this.walls = [$("#dontTouch"),$("#route")];
+    for(var i = 1;i<25;i++){
+        this.walls.push($(".window"+i))
+    }
     this.STATIC_HORIZONTAL_CENTER;
     this.STATIC_VERTICAL_CENTER
     
@@ -67,14 +69,13 @@
     }
     
     this.epsilon = 5;
-    
+    console.log(this.walls[2].position().top)
     this.checkCollision =function()
     {   
         for(var i in this.walls)
         {
             //ONLY FLOOR
             this.WIDTH_DIFFERENCE = this.frunzDiv.width()/2 + this.walls[i].width()/2;
-            console.log(this.walls[i].position().left);
             this.STATIC_HORIZONTAL_CENTER = this.walls[i].position().left + this.walls[i].width()/2;
             this.STATIC_VERTICAL_CENTER = this.walls[i].position().top;
             

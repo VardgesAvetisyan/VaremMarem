@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     var door = $("<div/>").attr("class", "door").appendTo(".roof1");
     function wind(topPos,leftPos){
-    var windowSill = $("<div>").css({
+    windowSill = $("<div>").css({
         top: topPos,
         left:leftPos,
     }).attr("class", "window"+id+" "+"windowSill").appendTo("#world");
