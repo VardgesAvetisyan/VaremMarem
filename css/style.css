@@ -4,19 +4,19 @@
 }
 #content{
     width: 85vw;
-    height: 98vh;
+    /* height: 98vh; */
     margin: auto;
     border: 1px solid black;
 }
 #world{
     width: 85vw;
-    height: 78.4vh;
+    /* height: 78.4vh; */
     border: 1px solid black;
     position: relative;
 }
 #building{
     width: 72vw;
-    height: 78vh;
+    /* height: 78vh; */
     margin: auto;
     border: 1px solid black;
     background-color:#663300;
@@ -27,12 +27,6 @@
     height: 27vh;
     border: 1px solid;
     position: relative;
-}
-.roof1{
-    top: 50.8vh;
-}
-.roof2{
-    top: -3.5vh;
 }
 #route{
     height: 19.5vh;
@@ -51,4 +45,10 @@
     position: absolute;
     border: 1px solid;
     bottom: 3.9vh;
+}
+.windowSill{
+    width: 12vw;
+    height: 4vh;
+    border: 1px solid;
+    position: absolute;
 }

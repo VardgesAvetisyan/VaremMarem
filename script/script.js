@@ -1,19 +1,25 @@
 $(document).ready(function () {
-    roof1 = $("<div/>").attr("class", "roof1 roof").appendTo("#building");
-    roof2 = $("<div/>").attr("class", "roof2 roof").appendTo("#building");
+    for(i = 1;i<=7;i++){
+        roof = $("<div/>").attr("class", "roof"+i+" "+" roof").prependTo("#building");
+    }
+    
 
     var door = $("<div/>").attr("class", "door").appendTo(".roof1");
-
+    function wind(topPos,leftPos){
     var windowSill = $("<div>").css({
-        width: "12vw",
-        height: "4vh",
-        border: "1px solid",
-        position: "absolute",
-        top: "44vh",
-        left:"11vw",
-    }).attr("id", "windowStill").appendTo("#world");
-
+        top: topPos,
+        left:leftPos,
+    }).attr("class", "window"+id+" "+"windowSill").appendTo("#world");
     var windows = $("<div>").attr("id","windows").appendTo(windowSill);
+    }
+    var id=0;
+    for(var y = 11;y<=59;y+=16){
+        for(var i = 20;i<=157.5;i+=27.5){
+            id++;
+            wind(i+"vh",y+"vw");
+        }
+    }
+   
     
     var player = new Player();
     player.frunzDiv.appendTo("#world");

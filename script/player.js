@@ -4,7 +4,7 @@
         width: "5vw",
         height: "15vh",
         border: "1px solid",
-        top: "60vh",
+        bottom: "60vh",
         left:"1vw",
     }).attr("id","player");
 
@@ -15,7 +15,7 @@
     this.gravity = 0.15;
     this.jumpState = true;
 
-    this.walls = [$("#dontTouch"),$("#route"),$("#windowStill")];
+    this.walls = [$("#dontTouch"),$("#route"),$(".windowSill")];
     
     this.STATIC_HORIZONTAL_CENTER;
     this.STATIC_VERTICAL_CENTER
