@@ -10,7 +10,7 @@
 }
 #world{
     width: 85vw;
-    height: 78vh;
+    height: 78.4vh;
     border: 1px solid black;
     position: relative;
 }
@@ -44,4 +44,11 @@
     margin: auto;
     border: 1px solid black;
     position: relative;
+}
+#windows{
+    width: 11.9vw;
+    height: 17vh;
+    position: absolute;
+    border: 1px solid;
+    bottom: 3.9vh;
 }

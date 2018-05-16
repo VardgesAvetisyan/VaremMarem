@@ -3,29 +3,19 @@ $(document).ready(function () {
     roof2 = $("<div/>").attr("class", "roof2 roof").appendTo("#building");
 
     var door = $("<div/>").attr("class", "door").appendTo(".roof1");
-    
-    function windows(tOp, riGht, boTTom, leFt, app, c1) {
-        var name = $("<div/>").css({
-            width: "10vw",
-            height: "14vh",
-            border: "1px solid black",
-            position: "relative",
-            display: "inline-block",
-            top: tOp,
-            right: riGht,
-            bottom: boTTom,
-            left: leFt,
-        }).attr("class", c1 + " " + "window").appendTo(app);
-    }
 
-    function all_windows() {
-        var num = 1;
-        for (var i = 5; i < 27; i += 7) {
-            windows("5vh", "0px", "0px", i + "vw", ".roof2", "window" + num);
-            num++;
-        }
-    }
-      var player = new Player();
+    var windowSill = $("<div>").css({
+        width: "12vw",
+        height: "4vh",
+        border: "1px solid",
+        position: "absolute",
+        top: "44vh",
+        left:"11vw",
+    }).attr("id", "windowStill").appendTo("#world");
+
+    var windows = $("<div>").attr("id","windows").appendTo(windowSill);
+    
+    var player = new Player();
     player.frunzDiv.appendTo("#world");
 
 
@@ -46,6 +36,6 @@ $(document).ready(function () {
         player.move();
     }
     var interval = setInterval(render, 20);
-    all_windows();
-   
+    
+
 })

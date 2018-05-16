@@ -6,7 +6,7 @@
         border: "1px solid",
         top: "60vh",
         left:"1vw",
-    });
+    }).attr("id","player");
 
     this.directions = {};
     this.speedX = 4;
@@ -15,7 +15,7 @@
     this.gravity = 0.15;
     this.jumpState = true;
 
-    this.walls = [$("#route")];
+    this.walls = [$("#dontTouch"),$("#route"),$("#windowStill")];
     
     this.STATIC_HORIZONTAL_CENTER;
     this.STATIC_VERTICAL_CENTER
@@ -43,7 +43,6 @@
     {
         for (var i in this.directions) 
         {
-            if (!this.directions.hasOwnProperty(i)) continue;
             
             if(this.frunzDiv.position().left > 0 && i == 37)
             {
@@ -75,7 +74,7 @@
         {
             //ONLY FLOOR
             this.WIDTH_DIFFERENCE = this.frunzDiv.width()/2 + this.walls[i].width()/2;
-            
+            console.log(this.walls[i].position().left);
             this.STATIC_HORIZONTAL_CENTER = this.walls[i].position().left + this.walls[i].width()/2;
             this.STATIC_VERTICAL_CENTER = this.walls[i].position().top;
             
