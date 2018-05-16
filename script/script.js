@@ -3,7 +3,7 @@ $(document).ready(function () {
     roof2 = $("<div/>").attr("class", "roof2 roof").appendTo("#building");
 
     var door = $("<div/>").attr("class", "door").appendTo(".roof1");
-
+    
     function windows(tOp, riGht, boTTom, leFt, app, c1) {
         var name = $("<div/>").css({
             width: "10vw",
@@ -25,7 +25,27 @@ $(document).ready(function () {
             num++;
         }
     }
+      var player = new Player();
+    player.frunzDiv.appendTo("#world");
 
+
+    $('html').keyup(stop).keydown(charMovement);
+
+    function charMovement(e) {
+        player.directions[e.which] = true;
+    }
+
+    function stop(e) {
+
+
+        delete player.directions[e.which];
+    }
+
+    function render() {
+
+        player.move();
+    }
+    var interval = setInterval(render, 20);
     all_windows();
-    Player();
+   
 })
