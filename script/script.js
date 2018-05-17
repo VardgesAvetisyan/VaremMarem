@@ -40,8 +40,29 @@ $(document).ready(function () {
     function render() {
 
         player.move();
+        update();
+        
     }
-    var interval = setInterval(render, 20);
+    var speed = 4;
+    function update(e) {
+        for (var i in player.directions) {
+            if (!player.directions.hasOwnProperty(i)) continue;
+
+            if (i == 38) {
+                
+                if (player.frunzDiv.position().top < 149) {
+                    player.frunzDiv.css("top", (player.frunzDiv.position().top - speed) + "px");
+                } else {
+                    $("#world").css("bottom", ($("#world").position().bottom -speed) + "px");
+                    
+
+                }
+
+            }
+        }
+    };
+    var interval = setInterval(render, 15);
+
     
 
 })

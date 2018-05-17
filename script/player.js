@@ -1,13 +1,13 @@
  function Player() {
     this.frunzDiv = $("<div>").css({
         position: "absolute",
-        width: "5vw",
+        width: "2vw",
         height: "15vh",
         border: "1px solid",
         bottom: "60vh",
         left:"1vw",
     }).attr("id","player");
-
+    console.log(this.frunzDiv.position().top);
     this.directions = {};
     this.speedX = 4;
     this.speedY = 0;
@@ -58,9 +58,18 @@
             
             if(this.frunzDiv.position().top > 0 && i == 38 && this.jumpState == false)
             {
+                
+
                 this.epsilon = 5;
                 this.jumpState = true;
-                this.frunzDiv.css("top", this.frunzDiv.position().top - 6);
+                console.log(this.frunzDiv.position().top);
+                if(this.frunzDiv.position().top<840)
+                {
+                    $("#world").css("top", ($("#world").position().top + this.speedY) + "px");
+                }
+                this.frunzDiv.css("top", this.frunzDiv.position().top - this.speedY + "px");
+                
+               
             }
         }
         
