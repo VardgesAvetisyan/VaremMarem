@@ -2,6 +2,15 @@
     margin: 0;
     padding: 0;
 }
+
+#player {
+    position: absolute;
+    width: 2vw;
+    height: 15vh;
+    border: 1px solid;
+    bottom: 60vh;
+    left: 1vw;
+}
 #content{
     width: 90vw;
     /* height: 98vh; */
