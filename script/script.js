@@ -12,17 +12,47 @@ $(document).ready(function () {
         }).attr("class", "window" + id + " " + "windowSill").appendTo("#world");
         var windows = $("<div>").attr("id", "windows").appendTo(windowSill);
     }
-    var id = 0;
-    for (var y = 11; y <= 59; y += 16) {
-        for (var i = 20; i <= 157.5; i += 27.5) {
+    var id = 1;
+    var leftStart = 144;
+    var leftEnd = 820;
+    var leftRange = 225;
+    var topStart = 165;
+    var topEnd = 1250;
+    var topRange = 217;
+    for (var y = leftStart; y <= leftEnd; y += leftRange) {
+
+        for (var i = topStart; i <= topEnd; i += topRange) {
+            wind(i + "px", y + "px");
             id++;
-            wind(i + "vh", y + "vw");
+
         }
     }
 
-
     var player = new Player();
+    
+    function windowPos() {
+        var vereviHark = Math.floor((player.frunzDiv.position().top - player.frunzDiv.height()) + 3);
+        motik = [];
+        for (var x = 2; x < player.walls.length; x++) {
+            if (player.walls[x].position().top == vereviHark) {
+                motik.push(player.walls[x]);
+            }
+        }
+        return motik;
+    }
+    
+    function galya(){
+        var randWin = windowPos();
+        var randWindow = randWin[Math.floor(Math.random()*randWin.length)];
+        galyaDiv = $("<div>").attr("class","galya").appendTo(randWindow);
+    }
 
+    function sox(){
+        var obj = $("<div>").attr("class","obj").appendTo(".galya");
+        var kord = $(".galya").position().top;
+        kord--;
+
+    }
 
     $('html').keyup(stop).keydown(charMovement);
 
@@ -36,10 +66,12 @@ $(document).ready(function () {
 
     function render() {
         player.move();
-
     }
     var speed = 4;
     var interval = setInterval(render, 15);
+    var inter = setInterval(galya, 1000);
+    var inter1 = setInterval(sox, 1000);
+
 
 
 

@@ -4,6 +4,8 @@ function Player() {
     this.directions = {};
     this.speedX = 4;
     this.speedY = 0;
+    
+    this.motik = [];
 
     this.gravity = 0.15;
     this.jumpState = true;
@@ -40,8 +42,7 @@ function Player() {
 
                 this.epsilon = 5;
                 this.jumpState = true;
-                console.log(this.frunzDiv.position().top);
-
+                
                 this.frunzDiv.css("top", this.frunzDiv.position().top - this.speedY + "px");
 
 
