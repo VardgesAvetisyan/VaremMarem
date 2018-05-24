@@ -1,10 +1,15 @@
 $(document).ready(function () {
-    for (i = 1; i <= 7; i++) {
+    //**********random number***************
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+    //**********create harker***************
+    for (i = 1; i <= 18; i++) {
         roof = $("<div/>").attr("class", "roof" + i + " " + " roof").prependTo("#building");
     }
-
-
+    //***********create door****************
     var door = $("<div/>").attr("class", "door").appendTo(".roof1");
+    //***********create windows*************
     function wind(topPos, leftPos) {
         windowSill = $("<div>").css({
             top: topPos,
@@ -17,8 +22,9 @@ $(document).ready(function () {
     var leftEnd = 820;
     var leftRange = 225;
     var topStart = 165;
-    var topEnd = 1250;
+    var topEnd = 3637;
     var topRange = 217;
+
     for (var y = leftStart; y <= leftEnd; y += leftRange) {
 
         for (var i = topStart; i <= topEnd; i += topRange) {
@@ -29,31 +35,40 @@ $(document).ready(function () {
     }
 
     var player = new Player();
-    
+    //**********take wondows position*******
     function windowPos() {
         var vereviHark = Math.floor((player.frunzDiv.position().top - player.frunzDiv.height()) + 3);
-        motik = [];
+        console.log(vereviHark)
+        motikner = [];
         for (var x = 2; x < player.walls.length; x++) {
             if (player.walls[x].position().top == vereviHark) {
-                motik.push(player.walls[x]);
+                motikner.push(player.walls[x]);
             }
         }
-        return motik;
+        return motikner;
     }
-    
-    function galya(){
+    //*********create Galya object*********
+    hinArr = [];
+    objTop = $(".windowSill").height() * 2.5;
+    console.log(objTop);
+    objLeft = $(".windowSill").width() / 2;
+    function galyaShow() {
         var randWin = windowPos();
-        var randWindow = randWin[Math.floor(Math.random()*randWin.length)];
-        galyaDiv = $("<div>").attr("class","galya").appendTo(randWindow);
+        var randWindow = randWin[Math.floor(Math.random() * randWin.length)];
+        galyaDiv = $("<div>").attr("id", "galya").appendTo(randWindow);
+        hinArr.push(galyaDiv);
+        // console.log(randWindow);
+
+
+        // var obj = $("<div>").css({ "top": -objTop, "left": objLeft }).attr("class", "obj").appendTo(randWindow);
+
+
     }
-
-    function sox(){
-        var obj = $("<div>").attr("class","obj").appendTo(".galya");
-        var kord = $(".galya").position().top;
-        kord--;
-
+    function galyaDel() {
+        $("#galya").remove();
+        // $(".obj").remove();
+        hinArr.splice(0, 1);
     }
-
     $('html').keyup(stop).keydown(charMovement);
 
     function charMovement(e) {
@@ -65,14 +80,21 @@ $(document).ready(function () {
     }
 
     function render() {
+
         player.move();
+
+        var rand = getRandomInt(1000, 2500);
+        // console.log(rand);
+        if (hinArr.length == 0) {
+            // console.log("Galyan ekav");
+            galyaShow();
+            setTimeout(galyaDel, rand);
+        }
+
+
+
     }
+
     var speed = 4;
-    var interval = setInterval(render, 15);
-    var inter = setInterval(galya, 1000);
-    var inter1 = setInterval(sox, 1000);
-
-
-
-
+    var interval = setInterval(render, 20);
 })

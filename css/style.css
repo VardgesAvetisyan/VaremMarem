@@ -8,7 +8,7 @@
     width: 30px;
     height: 110px;
     border: 1px solid;
-    bottom: 500px;
+    bottom: 700px;
     left: 20px;
 }
 #content{
@@ -22,10 +22,11 @@
     width: 1170px;
     border: 1px solid black;
     position: relative;
-    bottom:958px;
+    bottom:3345px;
 }
 #building{
     width: 933px;
+    height: 3905px;
     margin: auto;
     border: 1px solid black;
     background-color:#663300;
@@ -63,17 +64,18 @@
     border: 1px solid;
     position: absolute;
 }
-.galya{
+#galya{
     width:30px;
-   height: 110px;
-   border: 1px solid;
-   position: absolute;
-   top: -113px;
-    left: 55px
+    height: 110px;
+    border: 1px solid;
+    position: absolute;
+    top: -113px;
+    left: 55px;
 }
 .obj{
     width:15px;
     height: 15px;
     border: 1px solid;
     position: absolute;
+
 }

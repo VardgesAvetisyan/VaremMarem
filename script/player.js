@@ -1,17 +1,17 @@
 function Player() {
     this.frunzDiv = $("#player");
-    console.log(this.frunzDiv.position().top);
+    // console.log(this.frunzDiv.position().top);
     this.directions = {};
     this.speedX = 4;
     this.speedY = 0;
-    
+
     this.motik = [];
 
     this.gravity = 0.15;
     this.jumpState = true;
 
     this.walls = [$("#dontTouch"), $("#route")];
-    for (var i = 1; i < 25; i++) {
+    for (var i = 1; i < 69; i++) {
         this.walls.push($(".window" + i))
     }
     this.STATIC_HORIZONTAL_CENTER;
@@ -42,7 +42,7 @@ function Player() {
 
                 this.epsilon = 5;
                 this.jumpState = true;
-                
+
                 this.frunzDiv.css("top", this.frunzDiv.position().top - this.speedY + "px");
 
 
@@ -90,10 +90,15 @@ function Player() {
         if (this.jumpState) {
             this.speedY -= this.gravity;
             this.frunzDiv.css("top", this.frunzDiv.position().top - this.speedY);
-            if (this.frunzDiv.position().top < 840) {
+            // console.log(this.frunzDiv.position().top);
+            if (this.frunzDiv.position().top < 3280) {
                 $("#world").css("top", ($("#world").position().top + this.speedY) + "px");
             }
         }
     }
 
 }
+
+
+
+
