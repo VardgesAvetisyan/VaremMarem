@@ -91,8 +91,9 @@ function Player() {
             this.speedY -= this.gravity;
             this.frunzDiv.css("top", this.frunzDiv.position().top - this.speedY);
             // console.log(this.frunzDiv.position().top);
-            if (this.frunzDiv.position().top < 3280) {
+            if (this.frunzDiv.position().top < 3550) {
                 $("#world").css("top", ($("#world").position().top + this.speedY) + "px");
+                // $("#world").css("top", '-3220.09px');
             }
         }
     }

@@ -37,13 +37,18 @@ $(document).ready(function () {
     var player = new Player();
     //**********take wondows position*******
     function windowPos() {
-        var vereviHark = Math.floor((player.frunzDiv.position().top - player.frunzDiv.height()) + 3);
-        console.log(vereviHark)
+        var vereviHark = Math.floor(player.frunzDiv.position().top - player.frunzDiv.height() + 3);
+        // console.log("verev" + vereviHark);
+        // console.log("verevleft"+vereviHarkLeft);
         motikner = [];
         for (var x = 2; x < player.walls.length; x++) {
-            if (player.walls[x].position().top == vereviHark) {
+            if (player.walls[x].position().top - 2 < vereviHark && player.walls[x].position().top + 2 > vereviHark) {
+                console.log("bla");
                 motikner.push(player.walls[x]);
             }
+            // console.log("top"+Math.floor(player.walls[x].position().top));
+            // console.log("left"+Math.floor(player.walls[x].position().left));
+
         }
         return motikner;
     }
@@ -55,9 +60,18 @@ $(document).ready(function () {
     function galyaShow() {
         var randWin = windowPos();
         var randWindow = randWin[Math.floor(Math.random() * randWin.length)];
-        galyaDiv = $("<div>").attr("id", "galya").appendTo(randWindow);
-        hinArr.push(galyaDiv);
-        // console.log(randWindow);
+        if (randWindow) {
+            console.log(randWindow.position().top);
+            console.log(randWindow.position().top - 100, randWindow.position().left);
+
+            galyaDiv = $("<div>").attr("id", "galya").css({ "top": randWindow.position().top - 100, "left": randWindow.position().left}).appendTo('#world');
+            
+            console.log(galyaDiv);
+            hinArr.push(galyaDiv);
+            // console.log(randWindow);
+        }
+        console.log(randWin);
+
 
 
         // var obj = $("<div>").css({ "top": -objTop, "left": objLeft }).attr("class", "obj").appendTo(randWindow);
@@ -78,17 +92,20 @@ $(document).ready(function () {
     function stop(e) {
         delete player.directions[e.which];
     }
-
+    var time = 0;
     function render() {
-
+        time += 20;
         player.move();
 
         var rand = getRandomInt(1000, 2500);
         // console.log(rand);
         if (hinArr.length == 0) {
             // console.log("Galyan ekav");
-            galyaShow();
-            setTimeout(galyaDel, rand);
+            if (time % 500 == 0) {
+                galyaShow();
+                setTimeout(galyaDel, rand);
+            }
+
         }
 
 

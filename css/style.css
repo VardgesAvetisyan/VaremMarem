@@ -8,7 +8,7 @@
     width: 30px;
     height: 110px;
     border: 1px solid;
-    bottom: 700px;
+    bottom: 300px;
     left: 20px;
 }
 #content{
@@ -65,12 +65,13 @@
     position: absolute;
 }
 #galya{
-    width:30px;
-    height: 110px;
+    width:100px;
+    height: 100px;
     border: 1px solid;
+    margin-left: 20px;
     position: absolute;
-    top: -113px;
-    left: 55px;
+    background-color:red;
+    z-index: 2;
 }
 .obj{
     width:15px;
