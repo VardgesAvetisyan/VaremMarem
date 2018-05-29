@@ -1,5 +1,6 @@
 function Player() {
     this.frunzDiv = $("#player");
+    this.sprite = $("#playerImg");
     // console.log(this.frunzDiv.position().top);
     this.directions = {};
     this.speedX = 4;
@@ -24,17 +25,26 @@ function Player() {
     this.DYNAMIC_VERTICAL_CENTER;
 
     this.startPosition;
-
+    imageChangeCount = 1;
+    timer = 0;
 
     this.move = function () {
+        this.sprite.css({"left":"-360px","top":"0"});
         for (var i in this.directions) {
 
             if (this.frunzDiv.position().left > 0 && i == 37) {
                 this.frunzDiv.css("left", (this.frunzDiv.position().left - this.speedX) + "px");
+                if((timer+=10)%20 == 0)
+                    imageChangeCount = ((imageChangeCount % 4 == 0) ? 1 : imageChangeCount+1);
+                this.sprite.css({"top":"0","left": (imageChangeCount * (-90)+90)+"px"}); 
+
             }
 
             if (this.frunzDiv.position().left < ($("#world").width() - this.frunzDiv.width()) && i == 39) {
                 this.frunzDiv.css("left", (this.frunzDiv.position().left + this.speedX) + "px");
+                if((timer+=20)%40 == 0)
+                    imageChangeCount = ((imageChangeCount % 4 == 0) ? 1 : imageChangeCount+1);
+                this.sprite.css({"top":"0","left": (imageChangeCount * (-90))-270+"px"});
             }
 
             if (this.frunzDiv.position().top > 0 && i == 38 && this.jumpState == false) {
@@ -44,9 +54,10 @@ function Player() {
                 this.jumpState = true;
 
                 this.frunzDiv.css("top", this.frunzDiv.position().top - this.speedY + "px");
-
-
+                this.sprite.css({"top":"-72px","left":"-240px"});
+                
             }
+
         }
 
         this.checkCollision();

@@ -43,7 +43,7 @@ $(document).ready(function () {
         motikner = [];
         for (var x = 2; x < player.walls.length; x++) {
             if (player.walls[x].position().top - 2 < vereviHark && player.walls[x].position().top + 2 > vereviHark) {
-                console.log("bla");
+                // console.log("bla");
                 motikner.push(player.walls[x]);
             }
             // console.log("top"+Math.floor(player.walls[x].position().top));
@@ -61,16 +61,19 @@ $(document).ready(function () {
         var randWin = windowPos();
         var randWindow = randWin[Math.floor(Math.random() * randWin.length)];
         if (randWindow) {
-            console.log(randWindow.position().top);
-            console.log(randWindow.position().top - 100, randWindow.position().left);
+            // console.log(randWindow.position().top);
+            // console.log(randWindow.position().top - 100, randWindow.position().left);
 
             galyaDiv = $("<div>").attr("id", "galya").css({ "top": randWindow.position().top - 100, "left": randWindow.position().left}).appendTo('#world');
+            objeCts=$('<div>').attr("id","qar").css({"left":galyaDiv.position().left+galyaDiv.width()/2,"top":galyaDiv.position().top+ galyaDiv.height()/2}).appendTo("#world");
             
-            console.log(galyaDiv);
             hinArr.push(galyaDiv);
+                            console.log("ha");
+                // $("#qar").css({"top":$("#qar").position().top+i});
+            
             // console.log(randWindow);
         }
-        console.log(randWin);
+        // console.log(randWin);
 
 
 
@@ -80,6 +83,7 @@ $(document).ready(function () {
     }
     function galyaDel() {
         $("#galya").remove();
+$("#qar").remove();
         // $(".obj").remove();
         hinArr.splice(0, 1);
     }
@@ -97,13 +101,13 @@ $(document).ready(function () {
         time += 20;
         player.move();
 
-        var rand = getRandomInt(1000, 2500);
+        var rand = getRandomInt(1000, 5500);
         // console.log(rand);
         if (hinArr.length == 0) {
             // console.log("Galyan ekav");
-            if (time % 500 == 0) {
+            if (time % 4000 == 0) {
                 galyaShow();
-                setTimeout(galyaDel, rand);
+                setTimeout(galyaDel, 2000);
             }
 
         }

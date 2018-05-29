@@ -5,11 +5,16 @@
 
 #player {
     position: absolute;
-    width: 30px;
+    width: 70px;
     height: 110px;
-    border: 1px solid;
+    overflow:hidden;
     bottom: 300px;
+    z-index: 9999;
     left: 20px;
+}
+#playerImg{
+    position: relative;
+    left:-360px;
 }
 #content{
     width: 1170px;
@@ -72,6 +77,14 @@
     position: absolute;
     background-color:red;
     z-index: 2;
+}
+#qar{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-color: black;
+    z-index: 3;
+
 }
 .obj{
     width:15px;
